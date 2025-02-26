@@ -21,8 +21,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 
-          cache: 'pnpm'
+          node-version: 22
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
@@ -31,9 +31,9 @@ jobs:
         run: pnpm run build --outDir docs
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
