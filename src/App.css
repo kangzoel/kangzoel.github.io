@@ -1,0 +1,54 @@
+body {
+  background-color: #1e1e1e;
+  color: var(--primary);
+  font: 400 1.15em/1.6em "Roboto Flex", sans-serif;
+  position: relative;
+}
+
+body::before {
+  left: 1px;
+}
+
+body::after {
+  right: 1px;
+}
+
+body::before,
+body::after {
+  --pattern-spacing: 8px;
+  --pattern-color: rgba(77, 77, 77, 0.5);
+  --pattern-width: 40px;
+
+  content: "";
+  position: absolute;
+  top: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--pattern-color),
+    var(--pattern-color) 1px,
+    transparent 1px,
+    transparent var(--pattern-spacing)
+  );
+  background-size: 5px 5px;
+  height: 100%;
+  width: var(--pattern-width);
+  border-left: 1px solid var(--pattern-color);
+  border-right: 1px solid var(--pattern-color);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+a,
+.text-light {
+  color: var(--light);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
