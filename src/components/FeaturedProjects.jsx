@@ -24,7 +24,7 @@ const FeaturedProjects = () => {
             />
             <a
               className="absolute inset-0 bg-black opacity-15 hover:opacity-0 transition duration-700"
-              href="#"
+              href="https://youtu.be/_tBBpRvjTvE"
               target="_blank"
             ></a>
           </div>

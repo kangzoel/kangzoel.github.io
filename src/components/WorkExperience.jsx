@@ -17,13 +17,25 @@ const WorkExperience = () => {
           <MilestoneListItem
             title="Freelance"
             subtitle="Web Development (2020-2024)"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consequatur incidunt dolore quasi totam, error fugit eligendi delectus quisquam magnam laudantium unde facilis quo qui tempore commodi excepturi, voluptas dignissimos."
-          />
+          >
+            Developing a custom CMS for landing page and participate in
+            Developing KKN Website for UNSIKA, as well as handling technical
+            matters in the field.
+          </MilestoneListItem>
           <MilestoneListItem
             title="University of Singaperbangsa Karawang"
             subtitle="Web Development (2019)"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consequatur incidunt dolore quasi totam, error fugit eligendi delectus quisquam magnam laudantium unde facilis quo qui tempore commodi excepturi, voluptas dignissimos."
-          />
+          >
+            Developing applications for online clients. Some projects done
+            inclues:
+            <ul className="list-disc ml-6">
+              <li>E-Commerce</li>
+              <li>Point of Sales (POS)</li>
+              <li>Desktop based Warehouse app</li>
+              <li>Custom CMS</li>
+              <li>Custom Web App with REST API and Webhook support</li>
+            </ul>
+          </MilestoneListItem>
         </MilestoneList>
       </div>
     </Card>
