@@ -19,7 +19,7 @@ const WorkExperience = () => {
             subtitle="Web Development (2020-2024)"
           >
             Developing applications for online clients. Some projects done
-            inclues:
+            includes:
             <ul className="list-disc ml-6">
               <li>E-Commerce</li>
               <li>Point of Sales (POS)</li>
