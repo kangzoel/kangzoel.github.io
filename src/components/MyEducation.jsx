@@ -12,15 +12,10 @@ const MyEducation = ({ ...props }) => {
   return (
     <Card title={<Title />} {...props}>
       <div>
-        <p>Here are some of my educational qualifications:</p>
         <MilestoneList>
           <MilestoneListItem
             title="Singaperbangsa Karawang"
             subtitle="Bachelor's degree (2024)"
-          />
-          <MilestoneListItem
-            title="SMAN 1 Rengasdengklok"
-            subtitle="High School (2017)"
           />
         </MilestoneList>
       </div>
