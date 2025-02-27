@@ -44,8 +44,10 @@ const App = () => {
         $sidebar.style.top = scrollTop + "px";
       }
 
-      if (sidebarTop - 128 != 0)
+      if (sidebarTop - 128 != 0) {
         window.localStorage.setItem("top", sidebarTop - 128);
+      }
+
       setPrevScrollTop(scrollTop);
     };
 
