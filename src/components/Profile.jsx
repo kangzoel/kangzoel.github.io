@@ -1,6 +1,6 @@
 import Card from "./Card";
 import ProfileInfo from "./ProfileInfo";
-import Typewriter from "./Typewriter2";
+import Typewriter from "./Typewriter";
 import ProfilePicture from "../assets/profile.png";
 
 import { IoLocationSharp, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";

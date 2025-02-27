@@ -7,51 +7,42 @@ export default function Typewriter({ texts, speed = 100, pause = 1000 }) {
   useEffect(() => {
     let inserting, deleting;
 
-    new Promise((resolve) => {
+    (async () => {
       // INSERTING =============================================================
-      inserting = setInterval(() => {
-        setCursorIndex((prev) => {
-          if (prev < texts[textIndex].length) {
-            return prev + 1;
-          } else {
-            resolve(1);
-            clearInterval(inserting);
-            return prev;
-          }
-        });
-      }, speed);
-    })
-
-      // PAUSING ===============================================================
-      .then(
-        () =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve(1);
-            }, pause);
-          })
-      )
-
-      // DELETING ==============================================================
-      .then(() => {
-        deleting = setInterval(() => {
-          setCursorIndex((prevCursorIndex) => {
-            if (prevCursorIndex > 0) {
-              return prevCursorIndex - 1;
+      await new Promise((resolve) => {
+        inserting = setInterval(() => {
+          setCursorIndex((prev) => {
+            if (prev < texts[textIndex].length) {
+              return prev + 1;
             } else {
-              setTextIndex((prevTextIndex) => {
-                setCursorIndex(1);
-
-                if (prevTextIndex + 1 < texts.length) {
-                  return prevTextIndex + 1;
-                } else {
-                  return 0;
-                }
-              });
+              resolve(1);
+              clearInterval(inserting);
+              return prev;
             }
           });
         }, speed);
       });
+
+      // PAUSING ===============================================================
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(1);
+        }, pause);
+      });
+
+      // DELETING ==============================================================
+      deleting = setInterval(() => {
+        setCursorIndex((prevCursorIndex) => {
+          if (prevCursorIndex > 0) return prevCursorIndex - 1;
+
+          setCursorIndex(1);
+          setTextIndex((prevTextIndex) => {
+            if (prevTextIndex == texts.length - 1) return 0;
+            return prevTextIndex + 1;
+          });
+        });
+      }, speed);
+    })();
 
     return () => {
       clearInterval(inserting);
