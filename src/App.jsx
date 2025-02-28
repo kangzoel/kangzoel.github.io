@@ -16,12 +16,13 @@ const App = () => {
   const sidebarRef = useRef(null);
 
   useEffect(() => {
-    const windowHeight = window.innerHeight;
     const $sidebar = sidebarRef.current;
 
     const dynamicSidebar = () => {
+      if (window.innerWidth < 768) return;
+
       const scrollTop = window.scrollY;
-      const scrollBottom = scrollTop + windowHeight;
+      const scrollBottom = scrollTop + window.innerHeight;
 
       const sidebarTop = $sidebar.offsetTop + 128;
       const sidebarHeight = $sidebar.offsetHeight;
@@ -74,7 +75,7 @@ const App = () => {
     >
       <div className="relative md:min-w-[300px]">
         <div
-          className="absolute flex flex-col gap-12 pb-8 w-[300px]"
+          className="flex flex-col gap-12 pb-8 md:absolute md:w-[300px]"
           ref={sidebarRef}
         >
           <Profile />
