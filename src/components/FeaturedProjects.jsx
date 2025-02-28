@@ -36,7 +36,7 @@ const FeaturedProjects = () => {
             />
             <a
               className="absolute inset-0 bg-black opacity-15 hover:opacity-0 transition duration-700"
-              href="https://youtu.be/xAQ4TE3wjmU"
+              href="https://youtu.be/c7YFvgqaUD8"
               target="_blank"
               title="Point of Sales Website"
             ></a>
