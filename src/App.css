@@ -52,3 +52,10 @@ a,
 .bg-secondary {
   background-color: var(--secondary);
 }
+
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+}

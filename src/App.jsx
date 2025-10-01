@@ -69,7 +69,7 @@ const App = () => {
 
   return (
     <div
-      className={`outer-wrapper max-w-full mx-20 xl:w-[1100px] xl:mx-auto flex flex-col md:flex-row gap-10 pt-32 sm:max-md:pt-8 pb-8 ${
+      className={`outer-wrapper max-w-full mx-8 md:mx-20 xl:w-[1100px] xl:mx-auto flex flex-col md:flex-row gap-10 pt-32 sm:max-md:pt-8 pb-8 ${
         invisible ? "hidden" : ""
       }`}
     >

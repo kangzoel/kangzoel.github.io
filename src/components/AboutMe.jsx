@@ -26,8 +26,9 @@ const AboutMe = () => {
           <SkillBox name="JavaScript" />
           <SkillBox name="PHP" />
           <SkillBox name="SQL" />
-          <SkillBox name="ReactJS" />
           <SkillBox name="Laravel" />
+          <SkillBox name="Angular" />
+          <SkillBox name="Vue" />
         </div>
         <div className="flex gap-8">
           <div>

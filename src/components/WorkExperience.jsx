@@ -15,8 +15,14 @@ const WorkExperience = () => {
         <p>Here are some of my work experiences:</p>
         <MilestoneList>
           <MilestoneListItem
+            title="PT. Jiwalu Kreasi Studio"
+            subtitle="Frontend Developer (2025)"
+          >
+            Developing Tracking Web App, ERP, and Internal Software
+          </MilestoneListItem>
+          <MilestoneListItem
             title="Freelance"
-            subtitle="Web Development (2020-2024)"
+            subtitle="Full Stack Developer (2020-2024)"
           >
             Developing applications for online clients. Some projects done
             includes:
@@ -30,7 +36,7 @@ const WorkExperience = () => {
           </MilestoneListItem>
           <MilestoneListItem
             title="University of Singaperbangsa Karawang"
-            subtitle="Web Development (2019)"
+            subtitle="Full Stack Developer - Intern (2019)"
           >
             Developing a custom CMS for landing page and participate in
             Developing KKN Website for UNSIKA, as well as handling technical

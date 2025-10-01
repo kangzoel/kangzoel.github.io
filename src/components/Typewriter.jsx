@@ -1,58 +1,80 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Typewriter({ texts, speed = 100, pause = 1000 }) {
+const TYPEWRITER_STATE = {
+  INSERTING: 0,
+  PAUSING: 1,
+  DELETING: 2,
+};
+
+const Typewriter = ({ texts, speed = 100, pause = 1000 }) => {
+  const [state, setState] = useState(TYPEWRITER_STATE.INSERTING);
   const [textIndex, setTextIndex] = useState(0);
-  const [cursorIndex, setCursorIndex] = useState(1);
+  const [cursorIndex, setCursorIndex] = useState(0);
 
   useEffect(() => {
     let inserting, deleting;
 
-    (async () => {
-      // INSERTING =============================================================
-      await new Promise((resolve) => {
+    switch (state) {
+      // INSERTING ==========================================================
+      case TYPEWRITER_STATE.INSERTING:
+        clearInterval(deleting);
+
         inserting = setInterval(() => {
           setCursorIndex((prev) => {
-            if (prev < texts[textIndex].length) {
-              return prev + 1;
-            } else {
-              resolve(1);
-              clearInterval(inserting);
+            if (prev == texts[textIndex].length) {
+              setState(TYPEWRITER_STATE.PAUSING);
               return prev;
+            } else {
+              return prev + 1;
             }
           });
         }, speed);
-      });
+        break;
 
       // PAUSING ===============================================================
-      await new Promise((resolve) => {
+      case TYPEWRITER_STATE.PAUSING:
+        clearInterval(inserting);
+
         setTimeout(() => {
-          resolve(1);
+          setState(TYPEWRITER_STATE.DELETING);
         }, pause);
-      });
+        break;
 
       // DELETING ==============================================================
-      deleting = setInterval(() => {
-        setCursorIndex((prevCursorIndex) => {
-          if (prevCursorIndex > 0) return prevCursorIndex - 1;
+      case TYPEWRITER_STATE.DELETING:
+        deleting = setInterval(() => {
+          setCursorIndex((prevCursor) => {
+            if (prevCursor == 0) {
+              setTextIndex((prevTextIndex) => {
+                setState(TYPEWRITER_STATE.INSERTING);
 
-          setCursorIndex(1);
-          setTextIndex((prevTextIndex) => {
-            if (prevTextIndex == texts.length - 1) return 0;
-            return prevTextIndex + 1;
+                if (prevTextIndex + 1 < texts.length) {
+                  return prevTextIndex + 1;
+                } else {
+                  return 0;
+                }
+              });
+              return prevCursor;
+            } else {
+              return prevCursor - 1;
+            }
           });
-        });
-      }, speed);
-    })();
+        }, speed);
+        break;
+    }
 
     return () => {
       clearInterval(inserting);
       clearInterval(deleting);
     };
-  }, [textIndex]);
+  }, [state]);
 
   return (
     <div className="whitespace-pre-line">
       {texts[textIndex].slice(0, cursorIndex)}
+      <span className="animate-ping">|</span>
     </div>
   );
-}
+};
+
+export default Typewriter;

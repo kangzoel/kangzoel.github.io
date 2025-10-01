@@ -10,9 +10,10 @@ const ContactMe = ({ ...props }) => {
   return (
     <Card id="contact" title={<Title />} {...props}>
       <form
-        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe9aTeD-nLcricxIJqZJ6HM92mYfhZ9t2YR6cFAdfI-35mNAg/formResponse"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSe9aTeD-nLcricxIJqZJ6HM92mYfhZ9t2YR6cFAdfI-35mNAg/formResponse"
         method="POST"
         className="flex flex-col gap-4 text-sm"
+        target="_blank"
       >
         <div>
           <label htmlFor="name">Name</label>
