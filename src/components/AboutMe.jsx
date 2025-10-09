@@ -26,6 +26,7 @@ const AboutMe = () => {
           <SkillBox name="JavaScript" />
           <SkillBox name="PHP" />
           <SkillBox name="SQL" />
+          <SkillBox name="Spring Boot" />
           <SkillBox name="Laravel" />
           <SkillBox name="Angular" />
           <SkillBox name="Vue" />
